@@ -1,0 +1,17 @@
+.cardcontainer{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.weathercard { 
+    border-radius: 25px;
+    background-color: lightblue;
+    margin: 10px;
+    width: 450px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
