@@ -11,7 +11,7 @@ export const getWeather =  cache(async (zipCode) => {
         return {"cod":"400","message":"Nothing to geocode"}
     }
     const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},us&appid=${apiKey}&units=imperial`;
-    // console.log("url",url)
+    console.log("url",url)
     const response = await axios.get(url);
     return response.data;
   });
