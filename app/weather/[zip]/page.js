@@ -9,7 +9,7 @@ export default async function Page({ params: { zip } }) {
   return (
     <>
     <div style={{"display": "flex", "justifyContent": "center"}}>
-      <p className={styles.typewriter}>Weather for {zip}:</p>
+      <p className={styles.typewriter}>Upcoming Weather in {zip}:</p>
       </div>
       {weather.cod === "200" ? 
         groupedWeather.map((item, index) => {

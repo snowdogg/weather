@@ -7,8 +7,9 @@
     align-content: center;
 }
 .weathercard { 
+    font-family: 'courier new';
     border-radius: 25px;
-    background-color: lightblue;
+    background-color: lightgrey;
     margin: 10px;
     width: 450px;
     color: black;

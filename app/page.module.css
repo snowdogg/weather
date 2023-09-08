@@ -237,7 +237,7 @@
   white-space: nowrap;
   border-right: .2em solid;
   min-width: 0;
-  max-width: 165px;
+  max-width: 250px;
   animation: typing 4s steps(40, end) forwards,
              blink-caret .75s step-end infinite;
   
