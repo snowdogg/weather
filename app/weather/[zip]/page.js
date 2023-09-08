@@ -1,6 +1,7 @@
 import { getWeather } from '@/utils/get-weather'
 import styles from '../../page.module.css'
 import WeatherCard from '../../../components/weathercard';
+import { utcToZonedTime, format } from 'date-fns-tz';
 
 export default async function Page({ params: { zip } }) {
   const weather = await getWeather(zip);
@@ -33,9 +34,10 @@ function groupByDay(weather) {
   const groupedByDay = {};
 
   weather.list.forEach((item) => {
-    const date = new Date(item.dt * 1000);
-    const formattedDate = getFormattedDate(date);
-    
+    const dateUTC = new Date(item.dt * 1000);
+    const zonedDate = utcToZonedTime(dateUTC, "America/Los_Angeles");
+    const formattedDate = getFormattedDate(zonedDate);
+
     if (!groupedByDay[formattedDate]) {
       groupedByDay[formattedDate] = {
         data: [],
@@ -46,7 +48,7 @@ function groupByDay(weather) {
     }
 
     groupedByDay[formattedDate].data.push({
-      timeRange: getFormattedTimeRange(date),
+      timeRange: getFormattedTimeRange(zonedDate),
       weather: item.weather[0],
       main: item.main,
     });
